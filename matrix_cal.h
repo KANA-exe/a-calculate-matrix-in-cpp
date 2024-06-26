@@ -61,3 +61,13 @@ void mul_mtx_mtx(double** a,double** b,int ia,int ja,int ib,int jb,double** anf)
         }
     }
 }
+
+//calculate 2*2 determain
+double det_mtx(double** a,int i,int j){
+    if(i!=j||i!=2||i!=2){
+        cout << "error:the matrix cannot calculate second order determainate";
+        exit;
+    }
+
+    return (a[1][1]*a[0][0])-(a[0][1]*a[1][0]);
+}
