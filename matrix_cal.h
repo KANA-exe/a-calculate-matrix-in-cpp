@@ -71,3 +71,28 @@ double det_mtx(double** a,int i,int j){
 
     return (a[1][1]*a[0][0])-(a[0][1]*a[1][0]);
 }
+
+//inverse matrix
+void inv_mtx(double** a,int i,int j,double** ans1){
+    if(i!=j||i!=2||i!=2){
+        cout << "error:the matrix cannot calculate second order determainate";
+        exit;
+    }
+
+    for(int k=0;k<j;k++){
+            ans1[k] = new double[j];
+        }
+
+    ans1[0][0]=a[1][1];
+    ans1[0][1]=-1*a[0][1];
+    ans1[1][0]=-1*a[1][0];
+    ans1[1][1]=a[0][0];
+
+    double c=1/det_mtx(a,i,i);
+
+    for(int k=0;k<i;k++){
+        for(int l=0;l<j;l++){
+            ans1[k][l]=ans1[k][l]*c;
+        }
+    }
+
